@@ -1,17 +1,14 @@
 class Obstacle {
     
   constructor() {
-    this.gapSize = new p5.Vector(100, 250);
-    this.position = new p5.Vector(RESOLUTION.length - 200, 0);
+    this.gapSize = 250;
+    this.position = new p5.Vector(RESOLUTION.length, 0);
     this.gapY = Math.floor(Math.random() * 500) + 100;
+    this.readyToDespawn = false;
   }
   
-  getGapSizeX() {
-    return this.gapSize.x;
-  }
-  
-  getGapSizeY() {
-    return this.gapSize.y;
+  getGapSize() {
+    return this.gapSize;
   }
   
   getPositionX() {
@@ -22,6 +19,10 @@ class Obstacle {
     return this.position.y;
   }
   
+  getReadyToDespawn() {
+    return this.readyToDespawn;
+  }
+  
   setPositionX(variable) {
     this.position.x = variable;
   }
@@ -30,8 +31,19 @@ class Obstacle {
     this.gapY = variable;
   }
   
+  setReadyToDespawn(variable) {
+    this.readyToDespawn = variable;
+  }
+  
+  checkForDespawn() {
+    if(this.getPositionX() < -100) {
+      this.setReadyToDespawn(true);
+    }
+  }
+  
   update() {
-    this.setPositionX(this.getPositionX() - SPEED);
+    this.setPositionX(this.getPositionX() - SPEED * 1.25);
+    this.checkForDespawn();
   }
   
   drawTop() {

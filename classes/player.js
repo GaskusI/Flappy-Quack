@@ -4,7 +4,6 @@ class Player {
     this.height = RESOLUTION.height / 16;
     this.position = new p5.Vector(RESOLUTION.length / 16, RESOLUTION.height / 2);
     
-    this.gravity = 2.5;
     this.flappingTime = 0;
   }
   
@@ -37,7 +36,7 @@ class Player {
       // this.setPositionY(this.getPositionY() + (this.getGravity() * -2));
       this.setFlappingTime(this.getFlappingTime() - 1);
     } else {
-      this.setPositionY(this.getPositionY() + SPEED);
+      this.setPositionY(this.getPositionY() + SPEED * 3);
       // this.setPositionY(this.getPositionY() + this.getGravity());
     }
   }
