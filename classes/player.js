@@ -33,10 +33,12 @@ class Player {
   }
   update() {
     if(this.getFlappingTime() != 0) {
-      this.setPositionY(this.getPositionY() + (this.getGravity() * -2));
+      this.setPositionY(this.getPositionY() + (SPEED * -2));
+      // this.setPositionY(this.getPositionY() + (this.getGravity() * -2));
       this.setFlappingTime(this.getFlappingTime() - 1);
     } else {
-      this.setPositionY(this.getPositionY() + this.getGravity());
+      this.setPositionY(this.getPositionY() + SPEED);
+      // this.setPositionY(this.getPositionY() + this.getGravity());
     }
   }
   

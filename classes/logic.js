@@ -1,14 +1,5 @@
-class Logic {
-  
-  constructor() {
+// class Logic {
+//   generateObstacle() {
     
-  }
-  
-  update() {
-    
-  }
-  
-  draw() {
-    
-  }
-}
+//   }
+// }
