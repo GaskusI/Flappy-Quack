@@ -1,7 +1,6 @@
 class Player {
   constructor() {
-    this.length = RESOLUTION.length / 16;
-    this.height = RESOLUTION.height / 16;
+    this.diameter = RESOLUTION.length / 16;
     this.position = new p5.Vector(RESOLUTION.length / 16, RESOLUTION.height / 2);
     
     this.flappingTime = 0;
@@ -43,6 +42,7 @@ class Player {
   
   draw() {
     fill(255,255,0);
-    rect(this.position.x, this.position.y, this.length, this.height);
+    // rect(this.position.x, this.position.y, this.length, this.height);
+    circle(this.position.x, this.position.y, this.diameter);
   }
 }
