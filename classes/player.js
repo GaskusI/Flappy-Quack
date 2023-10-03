@@ -14,8 +14,8 @@ class Player {
     return this.position.y;
   }
   
-  getGravity() {
-    return this.gravity;
+  getDiameter() {
+    return this.diameter;
   }
   
   getFlappingTime() {

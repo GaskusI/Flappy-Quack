@@ -35,4 +35,39 @@ class Logic {
       this.setSecondObstacleReady(true);
     }
   }
+  
+  checkScreenCollision() {
+    if(player.getPositionY() >= RESOLUTION.height - (player.getDiameter() / 2)) {
+      gameEnd = true;
+      console.log('ooga booga');
+    }
+  }
+  
+  
+  checkObstacleCollision() {
+    for(let i = 0; i < obstacles.length; i++) {
+      
+        // Top
+      
+      if(player.getPositionX() + player.getDiameter() / 2 > obstacles[i].getPositionX() &&
+         player.getPositionX() - player.getDiameter() / 2 < obstacles[i].getPositionX() + (RESOLUTION.length / 8) &&
+         player.getPositionY() - player.getDiameter() / 2 > 0 &&
+         player.getPositionY() - player.getDiameter() / 2 < obstacles[i].getGapY()) {
+            gameEnd = true;
+            console.log('top');
+         }
+      
+        // Bot
+        
+      if(player.getPositionX() + player.getDiameter() / 2 > obstacles[i].getPositionX() &&
+         player.getPositionX() - player.getDiameter() / 2 < obstacles[i].getPositionX() + (RESOLUTION.length / 8) &&
+         player.getPositionY() + player.getDiameter() / 2 > obstacles[i].getGapY() + 200 &&
+         player.getPositionY() + player.getDiameter() / 2 < RESOLUTION.height) {
+            gameEnd = true;
+            console.log('bot');
+         } 
+    }
+  }
+  
+  
 }

@@ -23,14 +23,14 @@ class Obstacle {
     return this.readyToDespawn;
   }
   
+  getGapY() {
+    return this.gapY;
+  }
+  
   setPositionX(variable) {
     this.position.x = variable;
   }
-  
-  setGapY(variable) {
-    this.gapY = variable;
-  }
-  
+   
   setReadyToDespawn(variable) {
     this.readyToDespawn = variable;
   }
@@ -52,6 +52,6 @@ class Obstacle {
   }
   drawBot() {
     fill(0,255,0);
-    rect(this.position.x, this.gapY + 200, RESOLUTION.length / 8, RESOLUTION.height);
+    rect(this.position.x, this.gapY + 200, RESOLUTION.length / 8, RESOLUTION.height - this.gapY - 200);
   }
 }
